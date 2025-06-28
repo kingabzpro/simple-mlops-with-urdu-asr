@@ -1,0 +1,9 @@
+service: "service:svc"
+labels:
+  project: urdu-asr
+python:
+  packages:
+    - torch
+    - transformers
+    - soundfile
+    - accelerate

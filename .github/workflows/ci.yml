@@ -1,0 +1,21 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Run Prefect tests
+        run: prefect run --load asr_pipeline --skip-on-fail
+      - name: Build & Push Bento
+        env:
+          BENTOML_API_TOKEN: ${{ secrets.BENTOML_API_TOKEN }}
+          BENTOCLOUD_ORG:     ${{ secrets.BENTOCLOUD_ORG }}
+        run: |
+          bentoml build bento_service/bentofile.yaml
+          bentoml push whisper_urdu_service:latest
