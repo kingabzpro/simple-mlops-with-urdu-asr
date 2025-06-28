@@ -48,9 +48,9 @@ def evaluate():
 
 @task
 def build_bento():
-    subprocess.check_call(["bentoml", "build", "bento_service/bentofile.yaml"])
+    subprocess.check_call(["bentoml", "build", "."])
     subprocess.check_call(
-        ["bentoml", "push", "whisper_urdu_service:latest"]
+        ["bentoml", "push", "urdu-asr:latest"]
     )  # requires env vars
 
 

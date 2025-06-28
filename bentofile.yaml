@@ -1,9 +1,35 @@
-service: "service:svc"
+service: "bento_service.service:UrduASRService"
+
 labels:
   project: urdu-asr
+  version: "2.0.0"
+  description: "Modern Urdu ASR service with observability"
+
+include:
+  - "bento_service/"
+  - "requirements.txt"
+
+exclude:
+  - "__pycache__/"
+  - "*.pyc"
+  - ".git/"
+  - "data/"
+  - "checkpoints/"
+  - "mlruns/"
+  - "notebooks/"
+  - ".pytest_cache/"
+
 python:
-  packages:
-    - torch
-    - transformers
-    - soundfile
-    - accelerate
+  requirements_txt: "requirements.txt"
+
+docker:
+  distro: debian
+  python_version: "3.11"
+  system_packages:
+    - ffmpeg
+    - libsndfile1-dev
+  cuda_version: "12.1"
+
+monitoring:
+  enabled: true
+  type: "default"
