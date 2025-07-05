@@ -1,6 +1,6 @@
 # 🎤 Urdu ASR – Modern MLOps Pipeline
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![BentoML](https://img.shields.io/badge/BentoML-2.0+-green.svg)](https://bentoml.com/)
 
@@ -170,21 +170,3 @@ curl "http://localhost:3000/health"
 └── README.md
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [OpenAI Whisper](https://github.com/openai/whisper) for the base model
-- [Mozilla Common Voice](https://commonvoice.mozilla.org/) for the Urdu dataset
-- [BentoML](https://bentoml.com/) for the serving framework
-- [Hugging Face](https://huggingface.co/) for model hosting and transformers

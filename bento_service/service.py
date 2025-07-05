@@ -31,7 +31,7 @@ model = bentoml.transformers.get(MODEL_REF) or bentoml.transformers.import_model
 
 @bentoml.service(
     name="urdu-asr",
-    resources={"memory": "2Gi", "gpu": 1 if torch.cuda.is_available() else 0},
+    resources={"gpu_type": "nvidia-l4", "gpu": 1 if torch.cuda.is_available() else 0},
     traffic={"timeout": 30, "concurrency": 4}
 )
 class UrduASRService:
